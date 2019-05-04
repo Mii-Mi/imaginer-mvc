@@ -3,7 +3,7 @@ const Post = require('../database/models/Article'),
 
 module.exports = async (req, res) => {
     const posts = await Post.find({});
-    console.log(req.session);
+    // console.log(req.session);
 
     User.findById(req.session.userId, (error, user) => {
         if (error) {
