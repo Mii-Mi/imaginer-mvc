@@ -1,5 +1,10 @@
 <section class="section">
     <div class="container is-fullhd">
+        {{#if messages.error}}
+            <div class="error">
+                <p>{{messages.error}}</p>
+            </div>
+        {{/if}}
         <form action="/user/loginAuth" method="POST" enctype="multipart/form-data">
             <div class="field">
                 <label class="label">E-mail</label>
@@ -27,7 +32,7 @@
                     <button class="button is-link">Se connecter</button>
                 </div>
                 <div class="control">
-                    <button class="button is-text">Annuler</button>
+                    <a class="button is-text" href="/">Annuler</a>
                 </div>
             </div>
         </form>

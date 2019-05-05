@@ -4,7 +4,8 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       fileupload = require('express-fileupload'),
       expressSession = require('express-session'),
-      MongoStore = require('connect-mongo')
+      MongoStore = require('connect-mongo'),
+      flash = require('express-flash')
 
 // Controller
     // Articles
@@ -14,6 +15,7 @@ const articleCreateController = require('./controller/articleAdd'),
       articlePostController = require('./controller/articlePost'),
       articleEditController = require('./controller/articleEdit'),
       articleUpdateController = require('./controller/articleUpdate'),
+      articleDeleteController = require('./controller/articleDelete'),
       contactController = require('./controller/contact'),
     
     // Users
@@ -42,6 +44,7 @@ app.use(expressSession({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(fileupload());
+app.use(flash());
 
 const auth = require('./middleware/auth');
 
@@ -69,6 +72,7 @@ app.get('/articles/:id', articleSingleController);
 app.get('/article/add', auth, articleCreateController);
 app.post('/articles/post', auth, articleValidPost, articlePostController);
 app.get('/article/edit/:id', auth, articleEditController);
+app.get('/article/delete/:id', auth, articleDeleteController);
 app.post('/articles/update', auth, articleValidPost, articleUpdateController);
 
 // Users

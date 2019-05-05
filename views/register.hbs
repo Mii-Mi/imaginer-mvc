@@ -1,5 +1,10 @@
 <section class="section">
     <div class="container is-fullhd">
+        {{#if messages.error}}
+            <div class="error">
+                <p>{{messages.error}}</p>
+            </div>
+        {{/if}}
         <form action="/user/register" method="POST" enctype="multipart/form-data">
             <div class="field">
                 <label class="label">Nom</label>
@@ -34,7 +39,7 @@
                     <button class="button is-link">Enregistrer</button>
                 </div>
                 <div class="control">
-                    <button class="button is-text">Annuler</button>
+                    <a class="button is-text" href="/">Annuler</a>
                 </div>
             </div>
         </form>

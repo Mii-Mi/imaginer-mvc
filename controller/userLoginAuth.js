@@ -9,13 +9,15 @@ module.exports = (req, res) => {
             bcrypt.compare(password, user.password, (error, same) => {
                 if (same){
                     req.session.userId = user._id
+                    req.flash('success', 'Connexion réussie !');
                     res.redirect('/')
                 }else{
                     res.redirect('/user/login');
                 }
             })
         }else{
-        return res.redirect('/user/login')
+            req.flash('error', 'Échec de la connexion. Veuillez essayer à nouveau ...');
+            return res.redirect('/user/login')
         }
     })
 }

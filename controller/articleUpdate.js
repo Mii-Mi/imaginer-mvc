@@ -1,8 +1,11 @@
 const Post = require('../database/models/Article'),
-      path = require('path')
+      path = require('path'),
+      fs = require('fs');
 
+      
 module.exports = (req, res) => {
-
+          
+    const imageToDelete = `public${req.body.imageOld}`;
     const { image } = req.files;
     const uploadFile = path.resolve(__dirname, '../public/articles', image.name);
     console.log(req._id);
@@ -22,5 +25,8 @@ module.exports = (req, res) => {
                 res.redirect('/')
             }
         )
-    })
+    });
+    fs.unlink(imageToDelete, function(err, result) {
+        console.log(err);
+    });
 }

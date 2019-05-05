@@ -22,8 +22,10 @@
     "connect-mongo": "^2.0.3",
     "express": "^4.16.4",
     "express-fileupload": "^1.1.4",
+    "express-flash": "0.0.2",
     "express-handlebars": "^3.0.2",
     "express-session": "^1.16.1",
+    "fs": "0.0.1-security",
     "handlebars.moment": "^1.0.4",
     "mongoose": "^5.5.4"
   }

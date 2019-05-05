@@ -7,6 +7,7 @@ module.exports = (req, res) => {
             return res.redirect('/')
         }
         delete req.session.userId;
+        req.flash('success', 'Vous êtes maintenant déconnecté !');
         return res.redirect('/')
     })
 }
