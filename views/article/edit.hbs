@@ -1,10 +1,6 @@
 <section class="section">
     <div class="container is-fullhd">
-        {{#if messages.error}}
-            <div class="error">
-                <p>{{messages.error}}</p>
-            </div>
-        {{/if}}
+        {{>flash_messages}}
         <form action="/articles/update" method="POST" enctype="multipart/form-data">
             <div class="field">
                 <label class="label">titre de l'article</label>

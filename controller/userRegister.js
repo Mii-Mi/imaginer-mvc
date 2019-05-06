@@ -5,9 +5,16 @@ module.exports = (req, res) => {
         req.body, (error, user) => {
 
             if(error){
-                req.flash('error', 'Échec de la création, essayez de nouveau ...');
+
+                const warn = (Object.keys(error.errors).map(key => error.errors[key].message));
+                
+                req.flash('error', warn);
+                req.flash('data', req.body)
+                
                 return res.redirect('/user/create')
             }
+            
+            
             req.flash('success', 'Enregistrement réussi, vous pouvez maintenant vous connecter !');
             res.redirect('/');
         }

@@ -58,6 +58,11 @@ app.use(express.static('public'));
 // Route
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'main' }));
 app.set('view engine', 'hbs');
+app.use('*', (req, res, next) => {
+    res.locals.user = req.session.userId;
+    console.log(res.locals.user);
+    next()
+})
 
 // MiddleWare
 const articleValidPost = require('./middleware/articleValidPost')
@@ -80,7 +85,7 @@ app.get('/user/create', userCreateController);
 app.post('/user/register', userRegister);
 app.get('/user/login', userLogin);
 app.post('/user/loginAuth', userLoginAuth);
-app.get('/user/logout', userLogout);
+app.get('/user/logout',auth, userLogout);
 
 // Run app
 app.listen(3000, function(){

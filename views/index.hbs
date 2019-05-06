@@ -1,11 +1,7 @@
 <!-- .section Intro -->
 <section class="section intro">
     <div class="container">
-        {{#if messages.success}}
-            <div class="success">
-                <p>{{messages.success}}</p>
-            </div>
-        {{/if}}
+        {{>flash_messages}}
         <div class="columns">
             <div class="column">
                 <div class="content intro-text">
