@@ -13,6 +13,11 @@
                 <label class="label">Contenu</label>
                 <div class="control">
                     <textarea class="textarea" name="content">{{article.content}}</textarea>
+                    <script>
+                        CKEDITOR.replace('content');
+                        CKEDITOR.config.entities = false;
+                        CKEDITOR.config.entities_latin = false;
+                    </script>
                 </div>
             </div>
 
@@ -39,6 +44,7 @@
             <div class="field">
                 <div class="control">
                     <input class="input" type="hidden" name="imageOld" value="{{article.image}}">
+                    <input class="input" type="hidden" name="articleId" value="{{article.id}}">
                 </div>
             </div>
             <div class="field is-grouped">

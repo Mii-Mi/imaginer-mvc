@@ -5,7 +5,8 @@ const express = require('express'),
       fileupload = require('express-fileupload'),
       expressSession = require('express-session'),
       MongoStore = require('connect-mongo'),
-      flash = require('express-flash')
+      flash = require('express-flash'),
+      {stripTags} = require('./helpers/hbs')
 
 // Controller
     // Articles
@@ -56,7 +57,11 @@ MomentHandler.registerHelpers(Handlebars);
 app.use(express.static('public'));
 
 // Route
-app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'main' }));
+app.engine('hbs', hbs({ 
+    helpers: {stripTags: stripTags}, 
+    extname: 'hbs', 
+    defaultLayout: 'main' 
+}));
 app.set('view engine', 'hbs');
 app.use('*', (req, res, next) => {
     res.locals.user = req.session.userId;
@@ -86,6 +91,10 @@ app.post('/user/register', userRegister);
 app.get('/user/login', userLogin);
 app.post('/user/loginAuth', userLoginAuth);
 app.get('/user/logout',auth, userLogout);
+
+app.use((req, res) => {
+    res.render('error404')
+})
 
 // Run app
 app.listen(3000, function(){

@@ -5,12 +5,12 @@ const Post = require('../database/models/Article'),
       
 module.exports = (req, res) => {
           
+    
     const imageToDelete = `public${req.body.imageOld}`;
     const { image } = req.files;
     const uploadFile = path.resolve(__dirname, '../public/articles', image.name);
-    console.log(req._id);
     
-    const query = { id: req.id };
+    const query = { _id: req.body.articleId };
 
     image.mv(uploadFile, (error) => {
         Post.findOneAndUpdate(
@@ -26,7 +26,13 @@ module.exports = (req, res) => {
             }
         )
     });
-    fs.unlink(imageToDelete, function(err, result) {
+
+    if (imageToDelete != `public/articles/${image.name}`){
+        fs.unlink(imageToDelete, function (err, result) {
         console.log(err);
-    });
+        });
+    }
+    
+    
+    
 }

@@ -12,7 +12,8 @@ const query = article._id;
 console.log(query);
 
 
-Post.findByIdAndRemove(query,
+Post.findByIdAndRemove(
+    query,
     {useFindAndModify: false}, 
     function(err) {
     if (!err) {

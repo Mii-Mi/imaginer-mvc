@@ -13,6 +13,12 @@
                 <label class="label">Contenu</label>
                 <div class="control">
                     <textarea class="textarea" name="content"></textarea>
+                    <script>
+                        CKEDITOR.replace(
+                            'content');
+                        CKEDITOR.config.entities = false;
+                        CKEDITOR.config.entities_latin = false;
+                    </script>
                 </div>
             </div>
 

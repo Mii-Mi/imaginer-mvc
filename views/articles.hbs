@@ -1,7 +1,7 @@
 <section class="section">
     <div class="container">
         <h1 class="title">{{article.title}}</h1>
-        <p>{{article.content}}</p>
+        <p>{{stripTags article.content}}</p>
         <a class="button" href="/article/edit/{{article.id}}">Modifier</a>
         <a class="button" href="/article/delete/{{article.id}}">Supprimer</a>
     </div>
