@@ -18,12 +18,13 @@ const articleCreateController = require('./controller/articleAdd'),
       articleUpdateController = require('./controller/articleUpdate'),
       articleDeleteController = require('./controller/articleDelete'),
       contactController = require('./controller/contact'),
+    //   paginController = require('./controller/pagin'),
     
     // Users
       userCreateController = require('./controller/userCreate'),
       userRegister = require('./controller/userRegister'),
       userLogin = require('./controller/userLogin'),
-      userLoginAuth = require('./controller/userLoginAuth')
+      userLoginAuth = require('./controller/userLoginAuth'),
       userLogout = require('./controller/userLogout')
 
 const app = express();
@@ -84,13 +85,14 @@ app.post('/articles/post', auth, articleValidPost, articlePostController);
 app.get('/article/edit/:id', auth, articleEditController);
 app.get('/article/delete/:id', auth, articleDeleteController);
 app.post('/articles/update', auth, articleValidPost, articleUpdateController);
+// app.get('/page/:id', paginController);
 
 // Users
 app.get('/user/create', userCreateController);
 app.post('/user/register', userRegister);
 app.get('/user/login', userLogin);
 app.post('/user/loginAuth', userLoginAuth);
-app.get('/user/logout',auth, userLogout);
+app.get('/user/logout', auth, userLogout);
 
 app.use((req, res) => {
     res.render('error404')

@@ -33,8 +33,20 @@
 <!-- .actualité -->
 <section class="section">
     <div class="container">
+        <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+            <a class="pagination-previous" name="previous" href="/page/prev">Plus récents</a>
+            <a class="pagination-next" name="next" href="/page/next">Plus anciens</a>
+            <ul class="pagination-list">
+                <li><a class="pagination-link" aria-label="Goto page 1" name="firstPage" href="/">1</a></li>
+                <li><span class="pagination-ellipsis">&hellip;</span></li>
+                <li><a class="pagination-link" aria-label="Goto page 45" name="previous" href="/page/prev">45</a></li>
+                <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page" name="current" href="">46</a></li>
+                <li><a class="pagination-link" aria-label="Goto page 47" name="next" href="/page/next">47</a></li>
+                <li><span class="pagination-ellipsis">&hellip;</span></li>
+                <li><a class="pagination-link" aria-label="Goto page 86" name="last" href="/page/last">86</a></li>
+            </ul>
+        </nav>
         <div class="columns">
-
             {{#each posts}}
             <div class="column">
                 <div class="card">
