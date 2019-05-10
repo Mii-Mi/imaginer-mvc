@@ -16,10 +16,9 @@
             </div>
             <div class="column">
                 <div class="content">
-                    <div class="intro"><img src="resources/images/intro.png" alt="banniere">
+                    <div class="intro"><img src="{{src}}resources/images/intro.png" alt="banniere">
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -27,24 +26,12 @@
     </div>
 </section>
 
-
-
-
 <!-- .actualité -->
 <section class="section">
     <div class="container">
         <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-            <a class="pagination-previous" name="previous" href="/page/prev">Plus récents</a>
-            <a class="pagination-next" name="next" href="/page/next">Plus anciens</a>
-            <ul class="pagination-list">
-                <li><a class="pagination-link" aria-label="Goto page 1" name="firstPage" href="/">1</a></li>
-                <li><span class="pagination-ellipsis">&hellip;</span></li>
-                <li><a class="pagination-link" aria-label="Goto page 45" name="previous" href="/page/prev">45</a></li>
-                <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page" name="current" href="">46</a></li>
-                <li><a class="pagination-link" aria-label="Goto page 47" name="next" href="/page/next">47</a></li>
-                <li><span class="pagination-ellipsis">&hellip;</span></li>
-                <li><a class="pagination-link" aria-label="Goto page 86" name="last" href="/page/last">86</a></li>
-            </ul>
+            <a class="pagination-previous" name="previous" href="/page/prev/{{page}}">Plus récents</a>
+            <a class="pagination-next" name="next" href="/page/next/{{page}}">Plus anciens</a>
         </nav>
         <div class="columns">
             {{#each posts}}
@@ -79,7 +66,7 @@
           linear-gradient(rgba(255,172,252,0.8),
           rgba(255,170, 0,0.6)
           ),
-          url(resources/images/arinfo.webp)">
+          url({{src}}resources/images/arinfo.webp)">
 
                     <div class="media-content">
                         <div class="content">
@@ -110,7 +97,7 @@
                                 title="openspace3D">Découvrir →</a>
 
                             <div class="screenshot">
-                                <img src="resources/images/openspace3d.png" alt="openspace 3D">
+                                <img src="{{src}}resources/images/openspace3d.png" alt="openspace 3D">
                             </div>
 
                         </div>
@@ -134,7 +121,7 @@
                             <a href="https://cours.formao.fr" target="_blank" rel="noopener">Découvrir →</a>
 
                             <div class="screenshot">
-                                <img src="resources/images/formao.png" alt="formao">
+                                <img src="{{src}}resources/images/formao.png" alt="formao">
                             </div>
                         </div>
                     </div>
@@ -145,7 +132,7 @@
                 <article class="media notification bgimage animation" style="background-image:
         linear-gradient(rgba(0,242,96,0.7),
         rgba(0,242,96,0.7)
-        ), url(resources/images/imaginelab.webp)">
+        ), url({{src}}resources/images/imaginelab.webp)">
                     <div class="media-content">
                         <div class="content">
                             <h1 class="title is-size-3">I-magineLab</h1>

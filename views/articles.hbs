@@ -1,7 +1,13 @@
 <section class="section">
     <div class="container">
-        <h1 class="title">{{article.title}}</h1>
-        <p>{{{article.content}}}</p>
+        <figure class="image is-4by3">
+            <img src="{{article.image}}" alt="Placeholder image">
+        </figure>
+        <div class="content">
+            <h2>{{article.title}}</h2>
+            <p>{{{article.content}}}</p>
+            <p>Publié par {{author}}, le {{moment createDate format='DD/MM/YYYY'}}</p>
+        </div>
         <a class="button" href="/article/edit/{{article.id}}">Modifier</a>
         <a class="button" href="/article/delete/{{article.id}}">Supprimer</a>
     </div>

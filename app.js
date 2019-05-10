@@ -18,7 +18,8 @@ const articleCreateController = require('./controller/articleAdd'),
       articleUpdateController = require('./controller/articleUpdate'),
       articleDeleteController = require('./controller/articleDelete'),
       contactController = require('./controller/contact'),
-    //   paginController = require('./controller/pagin'),
+      paginController = require('./controller/pagin'),
+    //   pageArticlesController = require('./controller/pageArticles'),
     
     // Users
       userCreateController = require('./controller/userCreate'),
@@ -85,7 +86,8 @@ app.post('/articles/post', auth, articleValidPost, articlePostController);
 app.get('/article/edit/:id', auth, articleEditController);
 app.get('/article/delete/:id', auth, articleDeleteController);
 app.post('/articles/update', auth, articleValidPost, articleUpdateController);
-// app.get('/page/:id', paginController);
+app.get('/page/:id/:page', paginController);
+app.get('/slider/:page', homePageController)
 
 // Users
 app.get('/user/create', userCreateController);
